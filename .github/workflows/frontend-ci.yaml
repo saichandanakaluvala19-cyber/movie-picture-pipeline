@@ -59,6 +59,7 @@ jobs:
 
   docker:
     name: Docker Build
+    needs: [lint, test]
     runs-on: ubuntu-latest
 
     steps:
