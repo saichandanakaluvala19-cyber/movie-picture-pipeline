@@ -6,9 +6,9 @@ on:
       - main
     paths:
       - 'starter/backend/**'
-
   workflow_dispatch:
-  jobs:
+
+jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -32,6 +32,7 @@ on:
       - name: Run lint
         run: pipenv run lint
         working-directory: starter/backend
+
   test:
     name: Test
     runs-on: ubuntu-latest
