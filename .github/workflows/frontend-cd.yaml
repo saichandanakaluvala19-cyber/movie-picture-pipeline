@@ -82,10 +82,11 @@ jobs:
       - name: Build and push frontend image
         run: |
           docker build \
-            -t 883838680627.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }} \
+            --build-arg REACT_APP_MOVIE_API_URL=http://af434617339e34e5b92627970e5c7039-272481108.us-east-1.elb.amazonaws.com \
+            -t 625078500616.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }} \
             ./starter/frontend
           docker push \
-            883838680627.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }}
+            625078500616.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }}
 
   deploy:
     name: Deploy
@@ -115,7 +116,7 @@ jobs:
       - name: Update frontend image
         working-directory: starter/frontend/k8s
         run: |
-          kustomize edit set image frontend=883838680627.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }}
+          kustomize edit set image frontend=625078500616.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }}
 
       - name: Deploy frontend
         working-directory: starter/frontend/k8s
