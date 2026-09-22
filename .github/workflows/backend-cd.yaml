@@ -80,10 +80,10 @@ jobs:
       - name: Build and push backend image
         run: |
           docker build \
-            -t 883838680627.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }} \
+            -t 625078500616.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }} \
             ./starter/backend
           docker push \
-            883838680627.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }}
+            625078500616.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }}
 
   deploy:
     name: Deploy
