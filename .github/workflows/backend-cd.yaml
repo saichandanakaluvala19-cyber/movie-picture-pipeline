@@ -113,7 +113,7 @@ jobs:
       - name: Update backend image
         working-directory: starter/backend/k8s
         run: |
-          kustomize edit set image backend=883838680627.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }}
+          kustomize edit set image backend=625078500616.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }}
 
       - name: Deploy backend
         working-directory: starter/backend/k8s
